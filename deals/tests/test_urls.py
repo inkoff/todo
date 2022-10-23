@@ -1,5 +1,5 @@
 from django.contrib.auth import get_user_model
-from django.test import TestCase, Client
+from django.test import Client, TestCase
 
 from deals.models import Task
 
@@ -24,7 +24,6 @@ class TaskURLTests(TestCase):
         # Создаем авторизованый клиент
         self.user = User.objects.create_user(username='StasBasov')
         self.authorized_client = Client()
-        self.authorized_client.force_login(self.user)
 
     # Проверяем общедоступные страницы
     def test_home_url_exists_at_desired_location(self):
